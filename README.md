@@ -28,7 +28,6 @@ Shadowsocks 基于 SOCKS5 代理，将用户流量加密并通过多种混淆插
 - **优势**：部署简单、客户端丰富、社区支持广泛；  
 - **劣势**：协议单一，易被封锁，需要频繁更换端口或节点。  
 
-> 推荐阅读：《[28个优质SSR机场推荐：稳定高速节点，4K电影秒开](https://www.ssrnodes.com/daily-updates/ssr.html)》
 
 ---
 
@@ -42,7 +41,6 @@ V2Ray 是一个支持多协议（VMess、Shadowsocks、Trojan 等）的网络代
 - **优势**：极高的灵活性与可定制性，不易被 DPI（深度包检测）识别；  
 - **劣势**：配置相对复杂，对新手不够友好。  
 
-> 推荐参考：《[2025年最强v2ray机场推荐：高速稳定有性价比，玩转全球互联网](https://v2raygoodnode.com/daily-updates/v2ray-ji-chang.html)》
 
 ---
 
@@ -54,7 +52,6 @@ V2Ray 是一个支持多协议（VMess、Shadowsocks、Trojan 等）的网络代
 - **优点**：隐蔽性极强，流量几乎与正规 HTTPS 无异；无需额外混淆插件，配置相对简洁。  
 - **缺点**：依赖有效的 TLS 证书和正确的域名解析，部署对新手略有挑战。  
 
-> 查看详情：《[2025年好用的shadowrocket机场推荐-完美突破封锁](https://www.shadowrocketid.com/daily-updates/shadowrocket-ji-chang.html)》
 
 ### Clash  
 
@@ -77,7 +74,6 @@ V2Ray 是一个支持多协议（VMess、Shadowsocks、Trojan 等）的网络代
   - 内置测速与日志功能，实时监控节点质量。  
 - **适用人群**：iPhone 和 iPad 用户，追求桌面级体验。  
 
-> iOS 用户首选：《[2025年好用的shadowrocket机场推荐-完美突破封锁](https://www.shadowrocketid.com/daily-updates/shadowrocket-ji-chang.html)》
 
 ---
 
@@ -92,7 +88,6 @@ V2Ray 是一个支持多协议（VMess、Shadowsocks、Trojan 等）的网络代
 - **免费机场**：无需付费即可获取节点订阅，但通常带宽受限、速度波动大、稳定性较差。  
 - **付费机场**：通过月/季/年付费解锁更高带宽与更多节点，享受优质客服与 SLA 保证。  
 
-> 想要先试试免费节点？请参考《[免费订阅指南](https://john19187.github.io/v2ray-SSR-Clash-Verge-Shadowrocke/)》。
 
 ### 2.2 按性价比划分的付费套餐  
 
@@ -100,7 +95,6 @@ V2Ray 是一个支持多协议（VMess、Shadowsocks、Trojan 等）的网络代
 2. **中高端畅玩型**：月付 30–60 元，覆盖多国节点，支持多设备同时在线；  
 3. **高端旗舰型**：月付 80 元以上，提供专属 IP、游戏加速及高清流媒体优化。  
 
-> 推荐阅读：《[2025年好用机场精选：高性价比套餐推荐](https://www.skynode1.com/node/hao-yong-ji-chang.html)》与《[优质高端机场推荐-看4K-看奈飞首选！](https://www.freejichang.com/daily-updates/best-vpn.html)》。
 
 ---
 
@@ -110,7 +104,6 @@ V2Ray 是一个支持多协议（VMess、Shadowsocks、Trojan 等）的网络代
 
 稳定的节点和高带宽是体验流畅视频与游戏的前提。  
 
-> 详细对比可见：《[稳定机场加速器推荐：稳定性与速度全面对比（2025年）](https://www.nodegood.com/daily-updates/stable-ji-chang.html)》。
 
 ### 3.2 节点覆盖与延迟  
 
