@@ -14,9 +14,9 @@
 ***
 ### 稳定性价比机场：送小火箭ID、专属客户端
 
-🖥 **[[官网](https://www.xyfast.xyz/#/register?code=RAsqP5M1)]**
+🖥 **[[官网](https://user.xing-yun-1.com/#/register?code=RAsqP5M1)]**
 
-📲 **[[官网1](https://api.xxxlsop.com/#/register?code=RAsqP5M1)]**
+📲 **[[官网1](https://dash.xyfast.xyz/#/register?code=RAsqP5M1)]**
 
 📲 **[[官网2](https://cdn.xxxlsop3.com/#/register?code=RAsqP5M1)]**
 
