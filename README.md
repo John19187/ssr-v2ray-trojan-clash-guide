@@ -7,7 +7,6 @@
 
 ---
 
-<img width="1523" height="229" alt="SSR翻墙选购" src="https://github.com/user-attachments/assets/5dd803cc-c891-414e-920f-6aee1e270af4" />
 
 
 ### Shadowsocks（SSR）
