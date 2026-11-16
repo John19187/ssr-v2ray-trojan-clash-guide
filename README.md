@@ -2,13 +2,13 @@
 
 <a id="2026最全机场ssrv2raytrojanclash科普指南"></a>
 
-**先说现在发生了什么：部分国内中转资源被清退或迁移，一些服务换了线路、节点或自己的App。** 所以，以前能用的订阅和软件，现在可能需要按本家通知更新。直连也可能遇到IP受阻，改成直连以后仍要看自己的网络能否实际使用。
+**机场提供连接服务，客户端是手机或电脑上的连接软件，订阅链接则把服务提供的节点交给客户端。** 买好套餐后，用兼容的客户端导入订阅、选好节点，才能开始使用；有些服务把这些操作放进自家App，登录账号即可按它的方式连接。
 
-这篇先帮你看清[现在的变化和以前的通知](#network-context)，学校里的使用建议看[校园网与个人流量](#campus-use)。再往下，机场是卖连接服务的，客户端是手机或电脑里负责连接的软件，订阅是把节点交给软件的那份资料；需要时按对应小节查，不用先记住所有名词。
+如果以前能用、最近却连不上，先看你所用机场服务商的首页公告。部分国内中转资源停用后，服务需要迁移线路；有的还要求更新订阅或改用自家App。具体变化见[这两年的线路调整与后续](#network-context)，在学校使用的建议见[校园网与个人流量](#campus-use)。
 
 [![机场与代理工具科普：分清服务、软件与协议，看懂订阅、线路与出口](assets/images/proxy-concepts-guide-cover.webp)](assets/images/proxy-concepts-guide-cover.webp)
 
-**想选软件：** 看[服务与客户端](#layers)。**已有订阅：** 看[节点怎样导入和更新](#subscription)。**正在断联：** 看[按现象处理连接问题](#diagnosis)。本家通知换软件或换节点时，按[更新与迁移说明](#service-changes)继续。
+**想选软件：** 看[服务与客户端](#layers)。**已有订阅：** 看[节点怎样导入和更新](#subscription)。**正在断联：** 看[按现象处理连接问题](#diagnosis)。需要更新节点、协议或App时，按[更新与迁移说明](#service-changes)继续。
 
 ## 机场、VPN服务和客户端，各自提供什么
 
@@ -86,7 +86,7 @@ sing-box既可以作为核心程序运行，也有相应平台客户端。它的
 
 iPhone、iPad用户常见[Shadowrocket](https://github.com/John19187/proxy-client-guides/blob/main/downloads/shadowrocket/README.md)、[Loon](https://github.com/John19187/proxy-client-guides/blob/main/downloads/loon/README.md)、[Stash](https://github.com/John19187/proxy-client-guides/blob/main/downloads/stash/README.md)等软件；电脑和Android也各有选择。先按设备和手里的资料选软件，完整平台对照在[2026年机场通用客户端汇总与下载教程](https://github.com/John19187/proxy-client-guides#choose)，下载和操作则进入相应二级页。
 
-服务明确要求自己的App时，先按本家说明使用。[Nextin专用客户端说明](https://github.com/John19187/proxy-client-guides/blob/main/downloads/provider-app/README.md)列出了这款软件已取得资料的适用条件，其他品牌App按各自说明使用。
+服务要求自家App时，按本家教程登录。服务支持公共客户端Nextin的，可看[Nextin安装与服务接入](https://github.com/John19187/proxy-client-guides/blob/main/downloads/provider-app/README.md)介绍了这款软件的安装与连接，其他品牌App按各自说明使用。
 
 ### 系统代理、TUN和分流规则
 
@@ -106,7 +106,7 @@ TUN通过系统里的虚拟网络接口接收流量，再交客户端处理，�
 
 [![从服务账户取得适配订阅，由客户端下载解析、选择节点，并在服务变更后更新原订阅的过程示意](assets/images/subscription-to-client.webp)](assets/images/subscription-to-client.webp)
 
-图中把服务交付、客户端解析与连接分开；导入成功以后，仍要选好节点并让应用流量进入客户端。
+导入后，还要选中配置和节点，并按软件教程开启系统代理或VPN。应用请求进入客户端后，再按分流规则决定直连还是经过节点。
 
 限时下载也是一种交付条件。有的账户要先开启下载窗口，或只允许在特定App里取配置。订阅地址下载失败时，先查账户公告与对应格式；已保存节点能否继续连接，则由原入口是否仍在提供服务决定。保住现有可用配置，可以减少迁移时的损失。
 
@@ -157,7 +157,7 @@ TUN通过系统里的虚拟网络接口接收流量，再交客户端处理，�
 
 加密保护的是通信中的内容，连接仍然经过服务器地址、端口和网络路径，流量也有握手、长度与传输时序等特征。不同限制可以作用于不同位置：域名解析、握手中的域名信息、特定IP或端口，以及某种流量特征。
 
-[GFW Report全加密流量研究](https://gfw.report/publications/usenixsecurity23/zh/)发表于2023年，研究2021年11月起的现象及2022年的测量，描述了对Shadowsocks、VMess等全加密流量的被动识别。论文中的系统使用协议指纹和数据特征等启发式规则作判断。这里的识别针对流量特征，理解它不需要把加密想象成已经失去作用。
+[GFW Report全加密流量研究](https://gfw.report/publications/usenixsecurity23/zh/)发表于2023年，研究2021年11月起的现象及2022年的测量，描述了对Shadowsocks、VMess等全加密流量的被动识别。论文中的系统使用协议指纹和数据特征等启发式规则作判断。识别流量特征与解密通信内容是两件事：即使看不到内容，网络也可能根据特征阻断连接。
 
 HTTP Host、TLS SNI和QUIC连接中的相关信息，又属于不同机制。2025年发表的[QUIC研究](https://gfw.report/publications/usenixsecurity25/en/)记录了2024年4月7日起出现的特定域名过滤，其中国测点为北京、广州、上海的7个腾讯云或阿里云测点。TCP与UDP可能有不同结果，所以某次TCP超时而UDP仍可用，值得作为具体网络现象记录。
 
@@ -185,7 +185,7 @@ DNS把域名解析成访问所需的地址。TLS握手中的SNI用于告诉服�
 
 下图把地区、ASN、机房类型、评分和共享人数列在同一页面。这些是该检查工具的不同字段；其中名为“风控值”的分数，也是工具自己的评价。选择实际产品时，还要对应产品说明。
 
-[![2026年1月9日转发的IP检查页，展示地区、ASN、IDC标签、工具评分与共享人数，IP地址已有遮盖](assets/images/ip-database-fields-example-20260109.jpg)](assets/images/ip-database-fields-example-20260109.jpg)
+[![2026年1月9日转发的IP检查页，保留地区、机房标签、工具评分与共享人数，地址和供应商身份已遮盖](assets/images/notices/ip-fields-20260109-privacy.png)](assets/images/notices/ip-fields-20260109-privacy.png)
 
 “住宅IP”“原生IP”“纯净IP”各有具体定义和来源。使用某项AI产品前，应先明确网页还是移动App、个人还是组织账户、当前所在区域及所用渠道。例如[Claude地区说明](https://support.claude.com/en/articles/8461763-where-can-i-access-claude)维护其支持范围；[Gemini网页应用说明](https://support.google.com/gemini/answer/13575153?hl=en)将中国大陆列为仅限Workspace，并说明移动App范围可能不同。
 
@@ -230,89 +230,91 @@ Ping通常检测ICMP回应，TCPing检测端口能否连接，实际代理连接
 
 ## 现在为什么容易断联？这两年发生了什么
 
-先记住三件事：**有的国内中转资源停了，服务需要换线路；有的服务换了节点或App，用户要跟着更新；能测出延迟，也未必能真正打开网站。** 线路调整以后，过去的使用方法可能不再适合这家服务。
+**一些服务原来使用的国内中转服务器被停用，只能迁移线路。也有服务更换了节点协议，或者改为只支持自家App。** 遇到调整，查看你所用服务商首页的新连接说明，及时更新订阅或更换其支持的App。上游服务器停了，反复重装客户端解决不了。
 
-“中转”可以理解为中间多经过一台服务器；“直连”就是设备直接连境外节点。这轮材料里，确有中转资源退出、入口迁移和改交付方式的例子。看自己的服务时，先问现在给的是哪条线路、哪种软件，而不是沿用过去的标签。
+改成直连后，设备会直接连接境外节点，原来那段中转不再参与连接。但境外节点的IP仍可能受阻，所以“改了线路”还需要配合服务方后续维护。直连、中转与出口的区别见[前面的线路说明](#routes)。
 
-下面把以前的通知和后续按时间放在一起。近期观察记录截至2026年11月6日，页面更新于11月16日。
+以下记录截至2026年11月6日，整理于11月16日。
 
 ### 2025年已有通报与换IP限制，2026年继续出现资源调整
 
-2025年7月9日转发的一份商家公告，称接入通报增加、IPv4资源紧张且审核排队，因此暂停更换IP。同月其他商家通知也提到被通报IP的下架整改。原入口受影响后，能否及时取得替代资源，已经成为服务维护的实际条件。
+2025年7月，已有商家暂停更换IP，给出的理由是接入通报增加、IPv4资源紧张和审核排队。同月也有被通报IP下架整改的情况。入口出问题后，替代IP和服务器能否及时补上，会影响恢复速度。
 
 [![2025年7月9日转发的商家暂停换IP公告，说明IPv4资源紧张和申请审核排队](assets/images/notices/notice-20250709-ip-replacement-paused.jpg)](assets/images/notices/notice-20250709-ip-replacement-paused.jpg)
 
-进入2026年，1月29日署湖北飞讯网络有限公司的通知称，海外访问默认封闭，有业务需求者须提交IP、业务类型和流量图申请审核。2月8日转发的另一份商家公告，则针对其国内云服务器中“存在流量转发特征及相关敏感程序”的实例实施清退，并称受影响实例不再恢复。两份材料分别说明对应商家的业务安排。
+2026年1月29日，一家服务器供应商通知客户，海外访问默认封闭，有业务需求的客户须提交IP、业务类型和流量图申请审核。2月8日流传的国内云服务器清退公告要求清退“存在流量转发特征及相关敏感程序”的服务器，并称受影响的服务器不再恢复服务。
 
-[![落款2026年1月29日、署湖北飞讯的海外访问与申请恢复通知，原邮箱遮盖保留](assets/images/notices/feixun-overseas-access-20260129.png)](assets/images/notices/feixun-overseas-access-20260129.png)
+[![落款2026年1月29日的海外访问与申请恢复通知，供应商名称、印章和邮箱已遮盖](assets/images/notices/notice-20260129-privacy.png)](assets/images/notices/notice-20260129-privacy.png)
 
 [![2026年2月8日转发的国内云实例清退公告，涉及流量转发特征与不再恢复服务的安排](assets/images/notices/cloud-instance-retirement-20260208.jpg)](assets/images/notices/cloud-instance-retirement-20260208.jpg)
 
-3月28日至4月2日的通知涉及更多入口和机房调整。其中，3月28日的流传通知明确限定“部分三线联通”，要求在当日24点关闭相关端口、迁移业务；4月1日的文书署江门联通分公司，分别列出3月31日晚关停违规客户业务、4月1日晚暂停特定产品及排查后再考虑开通的安排。其他商家截图另谈东莞、深圳、广州各自资源的清退、迁移或退款。
+3月28日至4月2日的通知涉及更多入口和机房调整。其中，3月28日的流传通知明确限定“部分三线联通”，要求在当日24点关闭相关端口、迁移业务；4月1日江门的一份业务整改通知，分别列出3月31日晚关停违规客户业务、4月1日晚暂停特定产品及排查后再考虑开通的安排。其他商家截图另谈东莞、深圳、广州各自资源的清退、迁移或退款。
 
-[![2026年3月28日流传的端口关闭通知，正文限定部分三线联通，要求客户迁移业务](assets/images/notices/partial-unicom-ports-20260328.jpg)](assets/images/notices/partial-unicom-ports-20260328.jpg)
+[![2026年3月28日流传的端口关闭通知，限定部分三线联通，要求客户迁移业务；发布账号已遮盖](assets/images/notices/notice-20260328-privacy.png)](assets/images/notices/notice-20260328-privacy.png)
 
-3月31日另一份流传文书谈到西安、深圳、佛山、襄阳四地机房，列出7×24小时监测、整改和终止服务等安排。它与部分三线联通端口通知、江门联通文书是不同材料，资源处置范围也分别对应各自文书。
+3月31日流传的机房清查文书涉及西安、深圳、佛山、襄阳四地，要求7×24小时监测，并列出整改和终止服务的安排。
 
-[![落款2026年3月31日的流传清查文书，正文列出西安、深圳、佛山和襄阳四地机房及监测整改安排](assets/images/notices/four-idc-access-notice-20260331.png)](assets/images/notices/four-idc-access-notice-20260331.png)
+[![落款2026年3月31日的清查文书，保留西安、深圳、佛山和襄阳四地机房及监测整改安排，供应商名称和印章已遮盖](assets/images/notices/notice-20260331-privacy.png)](assets/images/notices/notice-20260331-privacy.png)
 
-[![落款2026年4月1日、署江门联通分公司的业务整改通知，客户和产品字段已有遮盖](assets/images/notices/jiangmen-rectification-20260401.png)](assets/images/notices/jiangmen-rectification-20260401.png)
+[![落款2026年4月1日的江门业务整改通知，供应商名称、印章、客户和产品字段已遮盖](assets/images/notices/notice-20260401-privacy.png)](assets/images/notices/notice-20260401-privacy.png)
 
-这些材料各有商家、地区、客户或产品范围。对普通用户来说，最直接的影响是原入口可能迁移、节点失效或服务换交付方式；机器已经清退时，仅在本机重装客户端解决不了上游资源问题。
+这些通知影响到所列机房或产品上的服务器。机场租用的服务器一旦被清退，就需要搬迁资源，原节点也可能随之失效。此时要等服务方提供新入口，再按公告更新订阅或App。
 
-同期讨论还提到，机房会看一台机器是否大量收进数据又转发出去、是否装了代理程序。它谈的是资源检查；某次停机究竟因为什么，要对应那次通知和记录。
+有讨论者认为，机房检查会关注服务器是否安装代理程序，以及是否大量接收、转发数据。
 
 ### 封IP、机房通报与“内鬼拉订阅”分别是什么
 
 **封IP，可以理解为原来的地址走不通了；机房停机或拔线，则是承载服务的机器不能继续用了。** 前一种情况可能靠更换地址处理，后一种通常还需要搬资源，用户等待的时间和要做的更新也会不同。
 
-2025年7月以及2026年1月、7月的讨论里，还出现过“内鬼拉订阅”的说法：有人先购买套餐、拿到节点列表，再用程序反复下载更新、试连节点，随后上报节点地址。“拉订阅”就是下载节点列表，“测活”就是试着连一下。这是原讨论提出的解释，具体某次通报怎样产生，要看那次事件的直接材料。
+2025年7月和2026年1月、7月的同期讨论中，有人猜测，一些节点地址是这样被上报的：先买套餐取得订阅，再用程序持续收集、测试节点，最后上报服务器地址。讨论里把这种做法叫作“内鬼拉订阅”。“拉订阅”就是下载节点列表，“测活”是测试节点能否连接。
 
-有的服务随后限制订阅下载时间、作废旧地址，或者只让用户使用自家App。对普通用户的影响是：原来的Clash、小火箭或路由器，可能拿不到新节点；服务换了连接方式，软件也可能要升级。讨论中曾提到改用AnyTLS后仍出现通报的反馈，换一种协议也需要继续维护。
+部分服务限制了订阅下载时间、作废旧地址，或改为只支持自家App。用Clash、小火箭或路由器的用户，可能因此拿不到新节点，需要改用该服务支持的连接方式。也有用户反馈，换成AnyTLS后仍遭通报；更换协议后，服务方仍需处理资源和线路问题。
 
-同批一份公告就给了具体做法：旧Trojan节点逐步换成VLESS，自家App自动处理，第三方软件要更新订阅；更新后仍没有新节点，再升级软件。这两个协议名在这里表示服务改用了另一种连接方式，普通用户照本家要求更新即可。若导入时提示缺少`proxies`等字段，先查[拿到的内容是否适合这款软件](https://github.com/John19187/proxy-client-guides/blob/main/subscription-formats.md#import-errors)。
+部分服务已将Trojan节点改为VLESS，并在自家App中自动完成迁移。这些服务的第三方客户端用户需要先更新订阅，仍没有新节点时再升级软件。Trojan和VLESS是两种代理协议，旧客户端可能不支持新节点。导入时若提示缺少`proxies`等字段，可查[订阅格式与导入错误](https://github.com/John19187/proxy-client-guides/blob/main/subscription-formats.md#import-errors)。
 
-另一份未标日期的服务公告将封IP频率、备用资源和上游成本列为调整理由，明确取消入门档，并称现有用户在有效期内仍按原价使用。通知中的成本解释是商家说法；实际购买还要看当前可选套餐和结算条件。服务换资源、调交付方式、改套餐，是这轮材料里彼此相连、又各有具体动作的变化。
+有的服务以频繁封IP和备用资源成本增加为由，取消入门档，同时保留已购用户在套餐有效期内的原价。新用户选套餐时，需要看调整后的价格和可用线路。
 
-### AWS入口自动换IP：先发现受阻，再由服务方切换
+<a id="aws入口自动换ip先发现受阻再由服务方切换"></a>
 
-AWS提供云服务器。可以把入口IP想成这台服务器的门牌号：原地址走不通时，采用自动换IP机制的服务会先发现问题，再换一个能用的地址，把变化交给App或订阅。这套自动检查和切换由服务方安排。
+### 使用AWS自动换IP的服务，为什么还会断几分钟
 
-AWS的[地址说明](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)和[服务器停止、启动说明](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html)介绍了地址怎样分配或变化；服务何时检查、发现不通后怎样换地址，则看本家维护方式。
+**自动换IP需要时间。** GFW封锁节点入口的IP或端口后，原地址可能无法连接。采用自动换IP机制的机场或VPN会监测入口状态，发现受阻后切换入口IP，再通过App或订阅提供新地址。检测和切换可能需要几分钟，有时约10分钟。
 
-从检测异常、切换入口到客户端取得变化，中间可能有几分钟、约10分钟的连接空窗，具体取决于本家机制。使用自动处理入口的App时，按本家通知等待或重连；通知明确要求更新订阅时，再在原软件更新节点。不要把“正在切换”当成套餐或整个服务已经永久失效。
+AWS是云服务器提供商。它的[IP地址说明](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)和[服务器停止、启动说明](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html)介绍了地址的分配与变化；机场如何检测故障、切换入口和通知客户端，由机场自己安排。
 
-这里的入口IP影响设备能否连到服务；目标网站看到的出口IP、账号地区与产品资格，则按[出口与平台条件](#platform-risk)判断。入口换IP恢复了连接，也要继续确认自己要用的网站或功能。
+切换进度和处理办法，看你所用机场服务商的首页公告。使用自家App的，按服务商说明等待或重连；节点需要更新的，在原客户端刷新订阅。持续连不上时，把发生时间和错误交给该服务商的客服。
 
-9月6日的一条同期记录还描述过另一种AWS中转异常：从9月4日起，部分节点测延迟和TCPing正常，实际连接后却超时，Hy2或IPv6当时表现不同。记录者同时讨论了流量阻断与AWS路由绕行两种可能。端口测试能通与代理实际可用，仍须分开判断。
+入口换好以后，先打开原来需要的网站。如果网站已经能打开，却提示地区不支持或账号异常，再查[出口与平台条件](#platform-risk)。
+
+9月4日起，有用户反馈AWS中转异常：部分节点能测出延迟，TCPing端口测试也正常，但连接后打不开网站；Hy2或IPv6当时的表现不同。9月6日的同期讨论提出流量阻断与AWS路由绕行两种可能，原因尚无定论。这也是为什么排障最后要试着打开目标网站，单看延迟数字容易漏掉问题。
 
 ### 停运、恢复计费和线路恢复，要接着看后续
 
-4月28日保存的快连《中国大陆地区停止运营公告》，说明大陆地区运营、付款与退款安排；5月8日保存的恢复声明随后宣布恢复全球标准运营和计费，并更新补偿与退款后续。两张图放在一起，才能看清前后变化。
+一家VPN服务曾发布《中国大陆地区停止运营公告》，说明付款与退款安排；后续又宣布恢复全球标准运营和计费，并更新补偿与退款办法。
 
-[![2026年4月28日保存的快连中国大陆地区停止运营公告，列出付款关闭与退款安排](assets/images/notices/letsvpn-mainland-suspension-20260428.jpg)](assets/images/notices/letsvpn-mainland-suspension-20260428.jpg)
+[![2026年4月28日保存的中国大陆地区停止运营公告，保留付款关闭与退款安排，服务名称和标识已遮盖](assets/images/notices/notice-20260428-privacy.png)](assets/images/notices/notice-20260428-privacy.png)
 
-[![2026年5月8日保存的快连恢复运营声明，说明全球标准计费、冻结补偿和退款后续](assets/images/notices/letsvpn-operation-resumption-20260508.jpg)](assets/images/notices/letsvpn-operation-resumption-20260508.jpg)
+[![2026年5月8日保存的同一家服务恢复运营声明，保留全球标准计费、冻结补偿和退款后续，账号、商标和链接已遮盖](assets/images/notices/notice-20260508-privacy.png)](assets/images/notices/notice-20260508-privacy.png)
 
 运营和计费恢复后，大陆地区服务状态仍有条件，具体连接要对应自己的线路与网络。10月27日至11月6日的同期观察也记录了部分海外IP的TCP异常：Ping或UDP仍有回应，TCP连接受影响；11月6日后续称强度降低、部分端口重新放开，同时仍有异常情况。
 
-因此，看恢复通知要同时看恢复了什么、影响哪些地区和线路。保留一两条已经确认可用的备用连接；遇到故障时先查本家通知，再按[实际失败环节](#diagnosis)处理。客户端是否兼容、旧订阅是否仍可下载，则按下面的维护与迁移说明继续。
+使用前看清恢复通知里的地区和线路。经常需要跨境连接的，可以提前准备一两条已经确认能用的备用连接；主用故障时先切换备用，再按[连接排障](#diagnosis)查原因。
 
 <a id="campus-use"></a>
 
 ## 在学校使用，校园网和自己的手机流量怎么选
 
-日常个人使用，优先考虑自己的手机流量，或自己办理、直接连接运营商网络的流量卡；电脑可以直接连接手机热点。这样把个人连接和校园网分开，遇到问题时也容易判断是哪条网络出了状况。校园网继续按本校的登录和使用要求使用。
+**在学校里，个人上网可以优先用自己的手机流量，电脑连手机热点。** 这样可以把个人上网与校园网账号分开。需要用校园网时，按学校的登录和使用规定操作。
 
-下图是一张聊天截图。图中导员称收到公安预警名单，询问学生是否访问过外网、装过加速器、VPN、游戏或海外版App。截图没有显示学校、日期，也没有说这位学生当时用的是校园网还是手机流量。
+下面的聊天截图中，导员称收到公安预警名单，并询问学生的上网和软件使用情况。截图未注明学校、日期和当时使用的网络，具体触发原因不详。
 
 [![导员询问学生上网和软件使用情况的聊天截图展示副本，头像和回复内容已有遮盖](assets/images/campus-chat-privacy-display-20261116.png)](assets/images/campus-chat-privacy-display-20261116.png)
 
-学校公布的校园网规则可以直接查。例如，南京林业大学在[实名账号核查通知](https://net.njfu.edu.cn/2026/0609/c30a164998/page.htm)中说明，实名信息用于网络安全管理和日志追溯。这解释了为什么校园账号要按学校规则使用；图里那次询问的具体触发原因，仍以当事学校和实际通知为准。
+校园网账号的管理要求，可以查自己学校的通知。例如，南京林业大学的[实名账号核查通知](https://net.njfu.edu.cn/2026/0609/c30a164998/page.htm)写明，实名信息用于网络安全管理和日志追溯。
 
-自己办理流量卡时，确认套餐就是普通手机数据业务；带学校名称的套餐，是否还接入校园统一认证，要看运营商和学校的具体说明。自己的手机流量仍经过运营商，换网络只是换了接入方式。
+自己办流量卡时，可以直接问运营商：“这张卡能直接用手机流量，还是需要登录校园网账号？”尤其是带学校名称的套餐，办卡前把认证方式问清。手机流量仍由运营商提供和管理。
 
-个人账号和验证信息自己保管，不外借校园网账号、订阅或验证码，也不替别人用自己的身份代收、注册。软件和网络按实际需要配置，没必要看到一个个案就反复换套餐或重装客户端。
+校园网账号、个人订阅和验证码自己保管，不外借，也不替别人用自己的身份代收或注册。
 
 <a id="查看网络环境与机场通报"></a>
 <a id="service-changes"></a>
@@ -332,20 +334,22 @@ AWS的[地址说明](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic
 <a id="4月下旬蜂窝网络域名和服务运营各有后续"></a>
 <a id="2025年服务账户和订阅用法已经开始变化"></a>
 
-本家公告要求更新订阅时，在原客户端更新已有订阅，再检查节点和策略组；迁移到新的协议或专用App时，先确认设备与软件版本是否支持，并保留原配置备份。部分服务只给自家App使用，迁移后仍需通用订阅的人应先确认实际交付方式，再决定套餐是否合适。格式与兼容性可查[订阅格式说明](https://github.com/John19187/proxy-client-guides/blob/main/subscription-formats.md)。
+平时多留意你购买的机场服务商的首页公告。遇到节点域名更换、端口受阻或线路调整，按服务商说明更新订阅、切换节点或调整客户端，减少旧配置造成的断联。迁移到新的协议或专用App前，先确认设备与软件版本支持，并保留原配置备份。
 
-故障通知和恢复通知都要看所列地区、网络、线路与时间。恢复运营、恢复计费和某条线路恢复连接是不同进展；在自己的设备和网络访问实际目标，才能确认当前用法已恢复。仍有错误时，沿[连接判断](#diagnosis)定位，具体软件操作直达对应教程。
+部分服务只支持自家App。仍需要Clash等通用客户端或路由器订阅的，选购前确认服务是否继续提供这些入口。格式与兼容性可查[订阅格式说明](https://github.com/John19187/proxy-client-guides/blob/main/subscription-formats.md)。
+
+仍然连不上时，按[连接判断](#diagnosis)找到失败环节，再进入对应客户端教程处理。
 
 <details>
 <summary>技术资料与原图来源</summary>
 
 - 协议与实现：上文链接的Shadowsocks、V2Fly、Xray、Trojan、Hysteria、TUIC/sing-box、AnyTLS和WireGuard官方资料。
 - 传输层次参考[RFC 768](https://www.rfc-editor.org/info/rfc768/)与[QUIC的RFC 9000](https://www.rfc-editor.org/info/rfc9000/)。AWS地址机制参考正文链接的AWS官方文档。
-- 环境板块结合网络流传的通知、商家声明及同期讨论整理；原发行者、图内落款与转发日期按各条说明。IP检查页为2026年1月9日转发的网络资料，地址沿原图遮盖；通知中的客户、产品及邮箱掩码继续保留。第三方权利保留，完整原始出处与授权记录由维护者内部保存。
+- 环境板块结合网络流传的通知、商家声明及同期讨论整理，保留日期、地区、影响范围和处理安排。展示副本中的供应商名称、账号、链接与印章已遮盖，正文及公开文件名同步隐名；原件和完整来源由维护者内部保留。通知中的客户、产品及邮箱掩码继续保留。第三方通知与图片保留原权利。
 - 校园聊天图为所提供截图的隐私展示副本，仅展示可见消息，头像与回复已遮盖；原图未显示学校与日历日期。校园账号管理说明链接对应高校自己的公开通知。
 - 网络研究：GFW Report全加密流量、QUIC、河南地区研究，以及2025年ECH论文。原发生、测量与发表时间分别保留。
 - [2022年TLS类工具异常报告](https://gfw.report/blog/blocking_of_tls_based_circumvention_tools/en/)整理同期用户记录；[GFWeb](https://www.usenix.org/system/files/usenixsecurity24-hoang.pdf)发表于2024年，数据为2022年2月至2023年9月；[QUICstep](https://gfw.report/publications/pets26a/en/)发表于2026年，主要网站测量来自2024年8至11月。[Geedge Cases](https://gfw.report/publications/foci26b/en/)结合2025年公开泄露材料与对照测量讨论相应对象。
-- 首图、订阅流程、入口与出口路径、连接四环节图为本文原创解释示意；IP检查页保原图与既有掩码。第三方素材和商标保原权利，见素材说明。
+- 首图、订阅流程、入口与出口路径、连接四环节图为本文原创解释示意；IP检查页在保留字段与数值的展示副本上遮盖了供应商身份。第三方素材和商标保原权利，见素材说明。
 
 </details>
 
@@ -390,7 +394,7 @@ AWS的[地址说明](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic
 | [OpenClash](https://github.com/John19187/proxy-client-guides/blob/main/downloads/openclash/README.md) | OpenWrt | 固件条件、配置与插件 |
 | [PassWall](https://github.com/John19187/proxy-client-guides/blob/main/downloads/passwall/README.md) | OpenWrt | 订阅节点与主开关 |
 | [ShellCrash](https://github.com/John19187/proxy-client-guides/blob/main/downloads/shellcrash/README.md) | Linux／路由器 | 安装脚本与运行条件 |
-| [Nextin专用客户端](https://github.com/John19187/proxy-client-guides/blob/main/downloads/provider-app/README.md) | 按服务公开支持范围 | 仅适用于已证实的服务条件 |
+| [Nextin](https://github.com/John19187/proxy-client-guides/blob/main/downloads/provider-app/README.md) | 按服务公开支持范围 | 服务指定Nextin时的安装与连接 |
 | [Clash for Windows](https://github.com/John19187/proxy-client-guides/blob/main/downloads/cfw/README.md) | 旧版／迁移 | 识别旧配置并迁移 |
 | [Clash for Android](https://github.com/John19187/proxy-client-guides/blob/main/downloads/cfa/README.md) | Android旧版／迁移 | 原版CFA与CMFA分开 |
 | [ClashX](https://github.com/John19187/proxy-client-guides/blob/main/downloads/clashx/README.md) | macOS旧版 | 普通ClashX身份与迁移 |
